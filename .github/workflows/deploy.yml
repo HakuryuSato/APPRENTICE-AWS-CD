@@ -19,7 +19,7 @@ jobs:
     - name: Set up PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '7.4'  # EC2のPHPバージョンに合わせる
+        php-version: '7.4'
         extensions: mbstring, xml
 
     - name: Install dependencies
@@ -37,6 +37,6 @@ jobs:
         echo "$SSH_PRIVATE_KEY" > private_key
         chmod 600 private_key
         ssh -o StrictHostKeyChecking=no -i private_key $REMOTE_USER@$REMOTE_HOST << 'EOF'
-          cd /home/ec2-user/app
+          cd /var/www/html/slim/APPRENTICE-AWS-CD
           nohup php -S 0.0.0.0:8080 -t . > /dev/null 2>&1 &
         EOF
