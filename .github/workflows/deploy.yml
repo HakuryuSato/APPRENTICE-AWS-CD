@@ -30,7 +30,7 @@ jobs:
       with:
         SOURCE: '.'
         TARGET: '/var/www/html/slim/APPRENTICE-AWS-CD'
-        EXCLUDE: '/.github/,/vendor/,/.env'
+
 
     - name: Start PHP Built-in Server
       run: |
